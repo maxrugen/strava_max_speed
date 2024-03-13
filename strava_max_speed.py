@@ -28,5 +28,5 @@ for filename in os.listdir(os.path.abspath(os.getcwd())):
         continue
         
         
-print "Your max speed in KM/H is " + str(max_speed * 3.6)
-print "Your max speed in M/PH is " + str(max_speed * 2.237)
+print("Your max speed in KM/H is " + str(max_speed * 3.6))
+print("Your max speed in M/PH is " + str(max_speed * 2.237))
