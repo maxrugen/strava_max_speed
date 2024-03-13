@@ -16,12 +16,20 @@ for filename in os.listdir(os.path.abspath(os.getcwd())):
 
             # Go through all the data entries in this record
             for record_data in record:
-                
+
                 if record_data.name == "enhanced_speed":
                     
-                    # save new max speed if higher than previous value
-                    if record_data.value > max_speed:
-                        max_speed = record_data.value
+                    # Check if record_data.value is a tuple
+                    if isinstance(record_data.value, tuple):
+                        # If it's a tuple, extract the first element as the float value
+                        speed_value = record_data.value[0]
+                    else:
+                        # If it's not a tuple, directly assign it as the float value
+                        speed_value = record_data.value
+                    
+                    # Check if speed_value is not None before comparing
+                    if speed_value is not None and speed_value > max_speed:
+                        max_speed = speed_value
     
     # continue if not a fit file
     else:
